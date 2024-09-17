@@ -1,7 +1,7 @@
 class Solution {
     public String solution(String s) {
         String answer = "";
-        int i = (int)Math.round(s.length()/2);
+        int i = (int)(s.length()/2);
         if(s.length()%2 == 0){
             answer = s.substring(i-1,i+1);
         }else{
