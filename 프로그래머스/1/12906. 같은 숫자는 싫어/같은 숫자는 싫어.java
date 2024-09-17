@@ -3,15 +3,13 @@ import java.util.*;
 public class Solution {
     public int[] solution(int []arr) {
         int[] answer = {};
-        int a = -1;
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != a) {
-                list.add(arr[i]);
-                a = arr[i];
+        Stack<Integer> stack = new Stack<>();
+        for(int i : arr){
+            if(stack.isEmpty() || stack.peek() != i){
+                stack.push(i);
             }
         }
-        answer = list.stream().mapToInt(i -> i).toArray();
+        answer =  Arrays.stream(stack.toArray()).mapToInt(i -> (int) i).toArray();
         return answer;
     }
 }
