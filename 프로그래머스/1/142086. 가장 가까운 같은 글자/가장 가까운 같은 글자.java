@@ -7,14 +7,10 @@ class Solution {
 
         for (int i = 0; i < s.length(); i++) {
             String str = s.substring(0,i);
-            StringBuffer sb = new StringBuffer();
-            sb.append(str);
-            sb.reverse();
-            str = sb.toString();
-            if(str.indexOf(s.substring(i,i+1)) != -1){
-                list.add(str.indexOf(s.substring(i,i+1))+1);
+            if (str.indexOf(s.charAt(i)) == -1) {
+                list.add(-1);
             }else{
-                list.add(str.indexOf(s.substring(i,i+1)));
+                list.add(i-str.lastIndexOf(s.charAt(i)));
             }
         }
         answer = list.stream().mapToInt(i->i).toArray();
