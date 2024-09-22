@@ -1,15 +1,15 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 class Solution {
     public int[] solution(int[] numbers) {
         int[] answer = {};
-        List<Integer> list = new ArrayList<>();
+        Set<Integer> set = new HashSet<>();
         for (int i = 0; i < numbers.length; i++) {
             for (int j = i + 1; j < numbers.length; j++) {
-                list.add(numbers[i]+numbers[j]);
+                set.add(numbers[i]+numbers[j]);
             }
         }
-        answer = list.stream().distinct().sorted().mapToInt(i -> i).toArray();
+        answer = set.stream().sorted().mapToInt(i->i).toArray();
         return answer;
     }
 }
