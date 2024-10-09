@@ -1,18 +1,15 @@
-import java.util.ArrayList;
-import java.util.List;
 class Solution {
     public int solution(int n) {
         int answer = 0;
-        List<Integer> list = new ArrayList<>();
+        int[] arr = new int[n+1];
         for (int i = 0; i <= n; i++) {
-            if (i == 0) list.add(i);
-            if (i == 1) list.add(i);
-            if (i >= 2) {
-                Integer sum = (list.get(i - 2) + list.get(i - 1))%1234567;
-                list.add(sum);
+            if (i == 0) arr[i] = i;
+            if (i == 1) arr[i] = i;
+            if (i >= 2){
+                arr[i] = (arr[i - 1] + arr[i - 2])%1234567;
             }
         }
-        answer = list.get(n);
+        answer = arr[n];
         return answer;
     }
 }
